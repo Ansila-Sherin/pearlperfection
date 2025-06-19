@@ -1,0 +1,74 @@
+
+<h1>Product Form</h1>
+
+<form action="{% url 'save' %}" method="POST" class="product-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ frm.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+<style>
+  body {
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    color: black;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 40px;
+  }
+
+  .product-form {
+    background-color: white;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .product-form p {
+    margin-bottom: 20px;
+  }
+
+  .product-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .product-form input[type="text"],
+  .product-form input[type="number"],
+  .product-form textarea,
+  .product-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .product-form button {
+    display: block;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .product-form button:hover {
+    background-color: #555;
+  }
+</style>
+0

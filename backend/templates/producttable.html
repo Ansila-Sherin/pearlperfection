@@ -1,0 +1,70 @@
+<table>
+    <tr>
+        <th>product name</th>
+        <th>description</th>
+        <th>qty</th>
+        <th>price</th>
+        <th>image</th>
+        <th>actions</th>
+    </tr>
+    {% for i in data%}
+<tr>
+    <td>{{i.product_name}}</td>
+    <td>{{i.description}}</td>
+    <td>{{i.qty}}</td>
+    <td>{{i.price}}</td>
+    <td>
+    {% if i.image %}
+        <img src="{{ i.image.url }}">
+    {% else %}
+        <span>No Image</span>
+    {% endif %}
+</td>
+
+
+    <td><button><a href="{% url 'edit' dataid=i.id %}">edit</a></button>
+    <button><a href="{% url 'delete' dataid=i.id %}">delete</a></button></td>
+</tr>
+{% endfor %}
+</table>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th {
+        background-color: #2c3e50;
+        color: white;
+        padding: 14px;
+        text-align: left;
+        text-transform: capitalize;
+    }
+
+    td {
+        padding: 14px;
+        border-bottom: 1px solid #ddd;
+        vertical-align: middle;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+        transition: background-color 0.3s;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+</style>
